@@ -2,8 +2,8 @@ C:\Users\emine\source\repos\Ado.NetDemo\bin\Debug\Ado.NetDemo.exe.config
 C:\Users\emine\source\repos\Ado.NetDemo\bin\Debug\Ado.NetDemo.exe
 C:\Users\emine\source\repos\Ado.NetDemo\bin\Debug\Ado.NetDemo.pdb
 C:\Users\emine\source\repos\Ado.NetDemo\obj\Debug\Ado.NetDemo.csprojAssemblyReference.cache
-C:\Users\emine\source\repos\Ado.NetDemo\obj\Debug\Ado.NetDemo.Form1.resources
 C:\Users\emine\source\repos\Ado.NetDemo\obj\Debug\Ado.NetDemo.Properties.Resources.resources
 C:\Users\emine\source\repos\Ado.NetDemo\obj\Debug\Ado.NetDemo.csproj.GenerateResource.cache
 C:\Users\emine\source\repos\Ado.NetDemo\obj\Debug\Ado.NetDemo.exe
 C:\Users\emine\source\repos\Ado.NetDemo\obj\Debug\Ado.NetDemo.pdb
+C:\Users\emine\source\repos\Ado.NetDemo\obj\Debug\Ado.NetDemo.Form2.resources
