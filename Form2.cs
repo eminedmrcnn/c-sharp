@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,7 +18,7 @@ namespace Ado.NetDemo
 		{
 			InitializeComponent();
 		}
-		SqlConnection baglanti = new SqlConnection(@"server=(localdb)\mssqllocaldb;initial catalog=e-trade;integrated security=true");
+		//SqlConnection baglanti = new SqlConnection(@"server=(localdb)\mssqllocaldb;initial catalog=e-trade;integrated security=true");
 
 
 		//SqlConnection baglanti = new SqlConnection();
@@ -30,10 +29,6 @@ namespace Ado.NetDemo
 		private void Form2_Load(object sender, EventArgs e)
 		{
 			dgwProducts.DataSource = _productDal.GetAll();
-
-
-
-
 		}
 	
 		private void button1_Click(object sender, EventArgs e)
@@ -41,7 +36,7 @@ namespace Ado.NetDemo
 
 			_productDal.Add(new Product
 			{
-				Name = textBox1.Text,
+				Name = textBox1.Text.ToString(),
 				UnitPrice = Convert.ToDecimal(textBox2.Text),
 				StockAmount = Convert.ToInt32(textBox3.Text)
 			});

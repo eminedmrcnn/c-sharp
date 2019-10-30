@@ -44,8 +44,27 @@ namespace Ado.NetDemo
 
 			return products;
 
+		}
+
+		public DataTable GetAll2()
+		{
+			if (_connection.State == ConnectionState.Closed)
+			{
+				_connection.Open();
+			}
+
+			SqlCommand command = new SqlCommand("Select * from Products", _connection);
+
+			SqlDataReader reader = command.ExecuteReader();
+
+			DataTable dataTable = new DataTable();
+			dataTable.Load(reader);
+			reader.Close();
+			_connection.Close();
+			return dataTable;
 
 		}
+
 		public void Add(Product product)
 		{
 			if (_connection.State == ConnectionState.Closed)
@@ -54,16 +73,17 @@ namespace Ado.NetDemo
 			}
 
 			SqlCommand command = new SqlCommand(
-				"Insert into Products values(@name,@unitPrice,@stockAmount", _connection);
-			SqlCommand command1 = new SqlCommand("insert into musteriler(name,unitPrice,stockAmount,) values (@name,@unitPrice,@stockAmount)", _connection);
+				"Insert into Products values (@name,@unitPrice,@stockAmount", _connection);
+			
 
-			command1.Parameters.AddWithValue("@name", product.Name);
-			command1.Parameters.AddWithValue("@unitPrice", product.UnitPrice);
-			command1.Parameters.AddWithValue("@stockAmount", product.StockAmount);
-			command1.Parameters.AddWithValue("@stockAmount", product.StockAmount);
-			command1.ExecuteNonQuery();
+			command.Parameters.AddWithValue("@name", product.Name);
+			command.Parameters.AddWithValue("@unitPrice", product.UnitPrice);
+			command.Parameters.AddWithValue("@stockAmount",product.StockAmount);
+			
+			command.ExecuteNonQuery();
 			_connection.Close();
 
+			
 		}
 	}
 }
