@@ -73,7 +73,7 @@ namespace Ado.NetDemo
 			}
 
 			SqlCommand command = new SqlCommand(
-				"Insert into Products values (@name,@unitPrice,@stockAmount", _connection);
+				"Insert into Products values (@name,@unitPrice,@stockAmount)", _connection);
 			
 
 			command.Parameters.AddWithValue("@name", product.Name);
@@ -84,6 +84,48 @@ namespace Ado.NetDemo
 			_connection.Close();
 
 			
+		}
+
+		public void Update(Product product)
+		{
+			if (_connection.State == ConnectionState.Closed)
+			{
+				_connection.Open();
+			}
+
+			SqlCommand command = new SqlCommand(
+				"Update Products set Name=@name, UnitPrice=@unitPrice, StockAmount=@stockAmount where Id=@ıd", _connection);
+
+
+			command.Parameters.AddWithValue("@name", product.Name);
+			command.Parameters.AddWithValue("@unitPrice", product.UnitPrice);
+			command.Parameters.AddWithValue("@stockAmount", product.StockAmount);
+			command.Parameters.AddWithValue("@ıd", product.Id);
+
+			command.ExecuteNonQuery();
+			_connection.Close();
+
+
+		}
+
+		public void Delete(int id)
+		{
+			if (_connection.State == ConnectionState.Closed)
+			{
+				_connection.Open();
+			}
+
+			SqlCommand command = new SqlCommand(
+				"Delete from Products where Id=@id", _connection);
+
+
+			
+			command.Parameters.AddWithValue("@id",id);
+
+			command.ExecuteNonQuery();
+			_connection.Close();
+
+
 		}
 	}
 }
